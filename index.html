@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional CSS for Skills Card */
+        .glass-section.skills-card {
+            position: relative;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px) saturate(150%) contrast(120%) brightness(100%);
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            color: #f0f0f0;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.2);
+            overflow: hidden; /* To ensure the ALX text does not overflow */
+        }
+
+        .glass-section.skills-card h2 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #cccccc;
+        }
+
+        .glass-section.skills-card ul {
+            list-style: none;
+            padding: 0;
+            font-size: 1.1em;
+            color: #d0d0d0;
+        }
+
+        .glass-section.skills-card ul li {
+            margin-bottom: 10px;
+        }
+
+        .glass-section.skills-card .alx-text {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            font-size: 3em;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.5);
+            white-space: nowrap;
+            text-align: right;
+            padding-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="content-wrapper">
+            <div class="content-left">
+                <div class="glass-section">
+                    <h1>Romeo Newo</h1>
+                    <p class="bio">I am a dedicated Software Engineer with expertise in building scalable web applications. Specializing in backend development, I also have extensive experience in full-stack technologies. My focus is on creating robust, efficient solutions across both frontend and backend.</p>
+                </div>
+                <div class="glass-section skills-card">
+                    <h2>Skills</h2>
+                    <div class="alx-text">ALX</div>
+                    <ul>
+                        <li>JavaScript (ES6+)</li>
+                        <li>Flutter & Dart</li>
+                        <li>Node.js & Express</li>
+                 
+                        <li>Python & Django</li>
+                        <li>RESTful APIs</li>
+                        <li>Git & GitHub</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-center">
+                <img src="romeo.png" alt="John Doe" class="profile-image">
+            </div>
+
+            <div class="content-right">
+                <div class="glass-section">
+                    <h2>Projects</h2>
+                    <ul>
+                        <li><a href="#">Advanced Analytics Dashboard</a> - A comprehensive dashboard designed for real-time data visualization and advanced analytics, featuring a sleek, user-centric interface.</li>
+                        <li><a href="#">Modern E-commerce Platform</a> - A cutting-edge e-commerce solution optimized for a seamless shopping experience, incorporating modern design principles and advanced functionality.</li>
+                        <li><a href="#">AI Chatbot</a> - A conversational AI chatbot built using Python and TensorFlow.</li>
+                    </ul>
+                </div>
+                <div class="glass-section">
+                    <h2>Contact</h2>
+                    <p>Email: johndoe@example.com</p>
+                    <p>LinkedIn: <a href="#">linkedin.com/in/johndoe</a></p>
+                    <p>GitHub: <a href="#">github.com/johndoe</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Garamond', serif;
+    overflow: hidden;
+    position: relative; /* Ensure positioning context for the glowing effect */
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('background.jpg') no-repeat center center;
+    background-size: cover;
+    background-blend-mode: overlay; /* Blend the gradient with the image */
+    animation: gashingGradient 10s linear infinite;
+}
+
+@keyframes gashingGradient {
+    0% { background-position: 0% 0%; }
+    25% { background-position: 100% 50%; }
+    50% { background-position: 50% 100%; }
+    75% { background-position: 0% 50%; }
+    100% { background-position: 50% 0%; }
+}
+
+/* Add the neon glowing effect */
+.glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Ensure it doesn't interfere with other elements */
+    overflow: hidden;
+}
+
+.glow::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 60%);
+    animation: pulseGlow 3s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+@keyframes pulseGlow {
+    0% { opacity: 0.4; }
+    50% { opacity: 0.9; }
+    100% { opacity: 0.4; }
+}
+
+.content-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    max-width: 1200px;
+}
+
+.content-left, .content-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 35%;
+}
+
+.content-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+
+.glass-section {
+    backdrop-filter: blur(10px) saturate(150%) contrast(120%) brightness(100%);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.1); /* Lighten the glass effect */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8); /* Static white shadow */
+    color: #f0f0f0;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+/* Neon shadow animation */
+@keyframes neonShadow {
+    0% {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(255, 255, 255, 1); /* Neon white */
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    }
+}
+
+/* Apply animations with staggered delays */
+.content-left .glass-section:nth-of-type(1) {
+    animation: rollInTop 1s forwards, neonShadow 3s ease-in-out infinite;
+    animation-delay: 0s, 0.5s; /* Delay for neon effect */
+}
+
+.content-left .glass-section:nth-of-type(2) {
+    animation: rollInBottom 1s forwards, neonShadow 3s ease-in-out infinite;
+    animation-delay: 0s, 1s; /* Delay for neon effect */
+}
+
+.content-right .glass-section:nth-of-type(1) {
+    animation: rollInLeft 1s forwards, neonShadow 3s ease-in-out infinite;
+    animation-delay: 0s, 1.5s; /* Delay for neon effect */
+}
+
+.content-right .glass-section:nth-of-type(2) {
+    animation: rollInRight 1s forwards, neonShadow 3s ease-in-out infinite;
+    animation-delay: 0s, 2s; /* Delay for neon effect */
+}
+
+.content-center .glass-section:nth-of-type(1) {
+    animation: rollInTop 1s forwards, neonShadow 3s ease-in-out infinite;
+    animation-delay: 0s, 2.5s; /* Delay for neon effect */
+}
+
+/* Animation for rolling in from various directions */
+@keyframes rollInTop {
+    0% {
+        transform: translateY(-100%) rotate(90deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes rollInBottom {
+    0% {
+        transform: translateY(100%) rotate(90deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes rollInLeft {
+    0% {
+        transform: translateX(-100%) rotate(-90deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0) rotate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes rollInRight {
+    0% {
+        transform: translateX(100%) rotate(90deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0) rotate(0);
+        opacity: 1;
+    }
+}
+
+.profile-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7), 0 0 25px rgba(255, 255, 255, 0.7);
+}
+
+h1, h2 {
+    margin: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #e0e0e0; /* Soft light color for a modern classic look */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.2), 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #cccccc; /* Slightly darker for emphasis */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.2), 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+p.bio {
+    font-size: 1.1em;
+    margin-top: 10px;
+    line-height: 1.6;
+    color: #d0d0d0; /* Softer color for the text */
+    text-shadow: none;
+}
+
+.skills ul, .projects ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.1em;
+    color: #d0d0d0; /* Softer color for the text */
+    text-shadow: none;
+}
+
+.skills ul li, .projects ul li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #66ccff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #33aaff;
+}
